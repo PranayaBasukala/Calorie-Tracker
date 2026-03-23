@@ -26,7 +26,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-###4. Configure Environment Variables
+### 4. Configure Environment Variables
 
 -Copy the example file:
 `cp .env.example .env`
@@ -37,33 +37,33 @@ NUTRITION_API_KEY=your_api_key_here
 **Get your API key from:**
 https://api-ninjas.com/api/nutrition
 
-###5. Apply Database Migrations
+### 5. Apply Database Migrations
 ```bash
 python manage.py migrate
 ```
-###6. Create Superuser (Admin Account)
+### 6. Create Superuser (Admin Account)
 bash
 `python manage.py createsuperuser`
-###7. Run Development Server
+### 7. Run Development Server
 bash
 `python manage.py runserver`
 
 **Access the app at:**
 http://127.0.0.1:8000/
 
-##✨ Features
+## ✨ Features
 -User Authentication (Sign Up, Login, Logout)
 -Nutrition lookup via API
 -Food database with nutritional information
 -Admin dashboard for data management
 
-##🔐 Admin Panel
+## 🔐 Admin Panel
 
 -Access:
 http://127.0.0.1:8000/admin/
 -Login using your superuser credentials.
 
-##📁 Project Structure
+## 📁 Project Structure
 ```
 Calorie-Tracker/
 ├── counter/                 # Main Django app
@@ -97,12 +97,12 @@ Calorie-Tracker/
 └── README.md               # Documentation
 ```
 
-##🔑 Requirements
+## 🔑 Requirements
 -Python (3.8+ recommended)
 -Django
 -API-Ninjas Nutrition API Key
 
-##📌 Notes
+## 📌 Notes
 -Ensure .env file is not committed to Git
 -Add .env to .gitignore
 -Activate virtual environment before running commands
