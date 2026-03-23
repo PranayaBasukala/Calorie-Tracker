@@ -54,16 +54,16 @@ python manage.py runserver
 http://127.0.0.1:8000/
 
 ## ✨ Features
--User Authentication (Sign Up, Login, Logout)  
--Nutrition lookup via API  
--Food database with nutritional information  
--Admin dashboard for data management
+* User Authentication (Sign Up, Login, Logout)  
+* Nutrition lookup via API  
+* Food database with nutritional information  
+* Admin dashboard for data management
 
 ## 🔐 Admin Panel
 
--Access:
+* Access:
 http://127.0.0.1:8000/admin/  
--Login using your superuser credentials.
+* Login using your superuser credentials.
 
 ## 📁 Project Structure
 ```
@@ -100,11 +100,11 @@ Calorie-Tracker/
 ```
 
 ## 🔑 Requirements
--Python (3.8+ recommended)  
--Django  
--API-Ninjas Nutrition API Key
+* Python (3.8+ recommended)  
+* Django  
+* API-Ninjas Nutrition API Key
 
 ## 📌 Notes
--Ensure .env file is not committed to Git  
--Add .env to .gitignore  
--Activate virtual environment before running commands
+* Ensure .env file is not committed to Git  
+* Add .env to .gitignore  
+* Activate virtual environment before running commands
