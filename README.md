@@ -1,5 +1,7 @@
 # Calorie Tracker – Django Nutrition App
 
+*4th Semester project*
+
 A Django-based web application for tracking nutrition information using the API-Ninjas Nutrition API.
 
 ---
