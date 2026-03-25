@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie - Track Your Calories, Achieve Your Goals</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 24px;
+            color: #4CAF50 !important;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-link {
+            color: #666 !important;
+            font-weight: 500;
+            margin: 0 15px;
+        }
+
+        .nav-link:hover {
+            color: #4CAF50 !important;
+        }
+
+        .btn-nav-login {
+            background: #4CAF50;
+            color: white;
+            border-radius: 25px;
+            padding: 8px 25px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .btn-nav-login:hover {
+            background: #8BC34A;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #f0f3f8 100%);
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #1a202c;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .btn-primary-lg {
+            background: #4CAF50;
+            color: white;
+            padding: 14px 50px;
+            border-radius: 50px;
+            font-weight: 600;
+            border: none;
+            margin: 0 10px 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary-lg:hover {
+            background: #8BC34A;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(76, 175, 80, 0.3);
+        }
+
+        .btn-secondary-lg {
+            background: transparent;
+            color: #4CAF50;
+            border: 2px solid #4CAF50;
+            padding: 12px 48px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary-lg:hover {
+            background: #4CAF50;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Summary Preview */
+        .summary-preview {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+            color: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(76, 175, 80, 0.2);
+            margin-bottom: 40px;
+        }
+
+        .summary-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .summary-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .summary-label {
+            font-size: 16px;
+        }
+
+        .summary-value {
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        /* Key Features */
+        .key-features {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .key-features h2 {
+            font-size: 42px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #1a202c;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .feature-card h4 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #1a202c;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* Why Choose Section */
+        .why-choose {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .why-choose h2 {
+            font-size: 42px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #1a202c;
+        }
+
+        .why-item {
+            display: flex;
+            margin-bottom: 50px;
+            align-items: flex-start;
+        }
+
+        .why-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: white;
+            margin-right: 30px;
+            flex-shrink: 0;
+        }
+
+        .why-content h4 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #1a202c;
+        }
+
+        .why-content p {
+            color: #666;
+            font-size: 15px;
+            margin: 0;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #f0f3f8 100%);
+        }
+
+        .how-it-works h2 {
+            font-size: 42px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #1a202c;
+        }
+
+        .step-card {
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: white;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .step-card h4 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #1a202c;
+        }
+
+        .step-card p {
+            color: #666;
+            font-size: 15px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #1a202c;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a202c;
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-section {
+            margin-bottom: 30px;
+        }
+
+        .footer-section h5 {
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 30px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+        }
+
+        /* Modal */
+        .modal-content {
+            border-radius: 12px;
+            border: none;
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+            color: white;
+            border: none;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .modal-header .btn-close {
+            filter: brightness(0) invert(1);
+        }
+
+        .form-control:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.25);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .btn-primary-lg, .btn-secondary-lg {
+                padding: 12px 30px;
+                font-size: 14px;
+                margin: 5px;
+            }
+
+            .why-item {
+                margin-bottom: 30px;
+            }
+
+            .why-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+                margin-right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'landing' %}">
+                <i class="fas fa-apple-alt"></i> Foodie
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#why">Why Choose</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#howitworks">How It Works</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-nav-login" data-bs-toggle="modal" data-bs-target="#loginModal">
+                            Login
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Track Your Calories, Achieve Your Goals</h1>
+            <p>A simple, intuitive calorie tracking app that helps you maintain a healthy diet and reach your fitness goals.</p>
+            <button class="btn btn-primary-lg" data-bs-toggle="modal" data-bs-target="#signupModal">
+                Start Tracking Now
+            </button>
+            <button class="btn btn-secondary-lg" data-bs-toggle="modal" data-bs-target="#loginModal">
+                Browse Food Database
+            </button>
+        </div>
+    </section>
+
+    <!-- Today's Summary Preview -->
+    <section class="summary-preview">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <h2 style="text-align: center; margin-bottom: 40px; font-size: 36px; font-weight: 700; color: #1a202c;">
+                        Today's Summary
+                    </h2>
+                    <div class="summary-box">
+                        <div class="summary-title">Track Your Daily Intake</div>
+                        
+                        <div class="summary-item">
+                            <span class="summary-label">Calories Goal</span>
+                            <span class="summary-value">2,000 kcal</span>
+                        </div>
+                        
+                        <div class="summary-item">
+                            <span class="summary-label">Breakfast</span>
+                            <span class="summary-value">450 kcal</span>
+                        </div>
+                        
+                        <div class="summary-item">
+                            <span class="summary-label">Lunch</span>
+                            <span class="summary-value">650 kcal</span>
+                        </div>
+                        
+                        <div class="summary-item">
+                            <span class="summary-label">Dinner</span>
+                            <span class="summary-value">400 kcal</span>
+                        </div>
+                        
+                        <div class="summary-item">
+                            <span class="summary-label"><strong>Total Consumed</strong></span>
+                            <span class="summary-value"><strong>1,500 kcal</strong></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="key-features" id="features">
+        <div class="container">
+            <h2>Key Features</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <h4>Extensive Food Database</h4>
+                        <p>Access thousands of foods with accurate nutritional information to easily track your daily intake.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <h4>Visual Progress Tracking</h4>
+                        <p>See your calorie intake visually with our intuitive progress bars and daily summaries.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <h4>Daily Meal Planning</h4>
+                        <p>Organize your meals throughout the day and keep track of your nutrition goals.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section class="why-choose" id="why">
+        <div class="container">
+            <h2>Why Choose Foodie?</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="why-item">
+                        <div class="why-icon">
+                            <i class="fas fa-feather"></i>
+                        </div>
+                        <div class="why-content">
+                            <h4>Simple & Intuitive Design</h4>
+                            <p>No complicated features or confusing interfaces. Just a clean, straightforward way to track your calories and nutrition.</p>
+                        </div>
+                    </div>
+
+                    <div class="why-item">
+                        <div class="why-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <div class="why-content">
+                            <h4>Personalized Recommendations</h4>
+                            <p>Get calorie goals tailored to your body, activity level, and weight management objectives.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="why-item">
+                        <div class="why-icon">
+                            <i class="fas fa-wifi-slash"></i>
+                        </div>
+                        <div class="why-content">
+                            <h4>Works Offline</h4>
+                            <p>Track your meals even without an internet connection. Your data syncs when you're back online.</p>
+                        </div>
+                    </div>
+
+                    <div class="why-item">
+                        <div class="why-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <div class="why-content">
+                            <h4>Privacy Focused</h4>
+                            <p>Your health data stays private. We don't sell your information or share it with third parties.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="howitworks">
+        <div class="container">
+            <h2>How It Works</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 60px; font-size: 18px;">
+                Foodie makes it simple to monitor your daily calorie intake and maintain a healthy diet.
+            </p>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h4>Search Foods</h4>
+                        <p>Find foods from our extensive database or add your own custom items.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h4>Add to Meals</h4>
+                        <p>Add foods to your breakfast, lunch, dinner, or create custom meal categories.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h4>Track Progress</h4>
+                        <p>Monitor your daily calorie intake and see how it compares to your goals.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Start Tracking?</h2>
+            <p>Join thousands of users who are achieving their health and fitness goals with Foodie.</p>
+            <button class="btn btn-primary-lg" data-bs-toggle="modal" data-bs-target="#signupModal">
+                Start Tracking Now
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="footer-section">
+                        <h5>Foodie</h5>
+                        <p style="color: rgba(255, 255, 255, 0.7); font-size: 14px; margin: 0;">
+                            A simple, intuitive calorie tracking app to help you maintain a healthy diet.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="footer-section">
+                        <h5>App</h5>
+                        <ul>
+                            <li><a href="{% url 'main' %}">Calorie Tracker</a></li>
+                            <li><a href="{% url 'main' %}">Food Database</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="footer-section">
+                        <h5>Resources</h5>
+                        <ul>
+                            <li><a href="#">Nutrition Guide</a></li>
+                            <li><a href="#">Calorie Calculator</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="footer-section">
+                        <h5>Company</h5>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Foodie. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Welcome Back!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="{% url 'login' %}">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="pass" required>
+                        </div>
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                                    {{ message }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                        <button type="submit" class="btn btn-primary-lg w-100">Login</button>
+                    </form>
+                    <hr>
+                    <p class="text-center" style="margin-bottom: 0;">Don't have an account? <a href="#" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#signupModal" style="color: #4CAF50; font-weight: 600;">Sign Up</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sign Up Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Join Foodie Today!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="{% url 'signup' %}">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="signup_username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="signup_username" name="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password1" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password1" name="password1" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password2" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="password2" name="password2" required>
+                        </div>
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                                    {{ message }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                        <button type="submit" class="btn btn-primary-lg w-100">Create Account</button>
+                    </form>
+                    <hr>
+                    <p class="text-center" style="margin-bottom: 0;">Already have an account? <a href="#" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#loginModal" style="color: #4CAF50; font-weight: 600;">Login</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
